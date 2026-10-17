@@ -59,6 +59,43 @@ body.theme-sunrise .task,body.theme-rainbow .task{background:rgba(255,255,255,.9
 .task-illustration svg{width:90%;height:90%;filter:drop-shadow(0 4px 3px #164b4526)}
 .language-switch{box-shadow:0 4px 14px #234f4b12}
 .lang-btn{display:inline-flex;align-items:center;gap:5px}
+
+/* FIX 2026-10: scenic themes use full-viewport photographic backgrounds.
+   Remove the oversized decorative SVG overlays that covered the task cards. */
+body.theme-water{
+ background:#087f9b url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2400&q=85') center center/cover fixed no-repeat!important;
+ color:var(--ink);
+}
+body.theme-sunrise{
+ background:#b87d51 url('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2400&q=85') center 52%/cover fixed no-repeat!important;
+ color:var(--ink);
+}
+body.theme-rainbow{
+ background:#6a9db9 url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2400&q=85') center 50%/cover fixed no-repeat!important;
+ color:var(--ink);
+}
+body.theme-water:before,body.theme-sunrise:before,body.theme-rainbow:before{
+ content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+ background:linear-gradient(180deg,rgba(21,35,36,.14),rgba(18,38,36,.10) 45%,rgba(15,32,31,.35));
+}
+body.theme-water .app,body.theme-sunrise .app,body.theme-rainbow .app{position:relative;z-index:1}
+body.theme-water .hero,body.theme-sunrise .hero,body.theme-rainbow .hero{
+ background:rgba(255,249,235,.88);backdrop-filter:blur(14px);
+ border:1px solid rgba(255,255,255,.84);box-shadow:0 14px 38px rgba(24,41,35,.2);
+}
+body.theme-water .weather,body.theme-sunrise .weather,body.theme-rainbow .weather{
+ background:rgba(255,251,242,.96);border:1px solid rgba(255,255,255,.9);
+}
+body.theme-water .panel,body.theme-sunrise .panel,body.theme-rainbow .panel{
+ background:rgba(255,253,247,.96);border-color:rgba(255,255,255,.9);
+ box-shadow:0 12px 30px rgba(20,40,36,.2);
+}
+body.theme-water .task,body.theme-sunrise .task,body.theme-rainbow .task{background:#fff;border-color:#dce8df}
+/* Interactive corner scenery was covering controls on short screens. */
+.scene-layer{display:none!important}
+.task-illustration{background:linear-gradient(145deg,#fff4d5,#f8dfc2 45%,#cceee7);border:2px solid #fff;box-shadow:0 5px 12px rgba(37,69,60,.18)}
+.task .task-illustration{width:60px;height:60px;border-radius:16px}
+.next-card .task-illustration{width:82px;height:82px;border-radius:20px}
 </style><script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script></head>
 <body><main class="app">
 <header class="top"><div class="brand"><div class="logo" aria-label="Little Day rainbow"><svg class="brand-rainbow" viewBox="0 0 100 76" role="img" aria-label="Colourful rainbow"><defs><linearGradient id="rainbowGlow" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6f91"/><stop offset=".25" stop-color="#ffb84d"/><stop offset=".5" stop-color="#ffe76a"/><stop offset=".7" stop-color="#66d7b3"/><stop offset="1" stop-color="#6d9cff"/></linearGradient></defs><path d="M8 70V48a42 42 0 0 1 84 0v22" fill="none" stroke="#ffffff" stroke-width="22" stroke-linecap="round"/><path d="M8 70V48a42 42 0 0 1 84 0v22" fill="none" stroke="url(#rainbowGlow)" stroke-width="16" stroke-linecap="round"/><path d="M22 70V49a28 28 0 0 1 56 0v21" fill="none" stroke="#fff8e9" stroke-width="7" stroke-linecap="round"/><g fill="#fff8e9"><circle cx="15" cy="18" r="3"/><circle cx="82" cy="10" r="2.5"/><circle cx="94" cy="27" r="2"/></g></svg></div><div><h1>Little Day</h1><p>A little help for a lovely day</p></div></div><div class="top-actions"><div class="language-switch" role="group" aria-label="Choose language"><button class="lang-btn" data-lang="pt" aria-label="Português" title="Português">🇵🇹<span>PT</span></button><button class="lang-btn active" data-lang="en" aria-label="English" title="English">🇬🇧<span>EN</span></button><button class="lang-btn" data-lang="de" aria-label="Deutsch" title="Deutsch">🇩🇪<span>DE</span></button></div><button class="secondary" id="settingsBtn" aria-label="Open settings">⚙️ <span>Settings</span></button><button class="secondary" id="weatherBtn">📍 <span data-i18n="setWeather">Set weather</span></button><button id="parentBtn">🔒 <span data-i18n="parentArea">Parent area</span></button></div></header>

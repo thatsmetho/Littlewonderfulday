@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs>
+ <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#5db6f4"/><stop offset=".48" stop-color="#ffc47b"/><stop offset="1" stop-color="#f9e6b9"/></linearGradient>
+ <linearGradient id="hill" x2="0" y2="1"><stop stop-color="#78b67d"/><stop offset="1" stop-color="#236b62"/></linearGradient>
+ <linearGradient id="river" x2="0" y2="1"><stop stop-color="#6bd4d2"/><stop offset="1" stop-color="#198fa2"/></linearGradient>
+ <linearGradient id="card"><stop stop-color="#fffdf5" stop-opacity=".97"/><stop offset="1" stop-color="#fff5dc" stop-opacity=".92"/></linearGradient>
+ <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#193b37" flood-opacity=".2"/></filter>
+</defs>
+<rect width="1200" height="630" fill="url(#sky)"/>
+<circle cx="880" cy="195" r="75" fill="#fff2ad" opacity=".95"/>
+<path d="M0 295L130 160 240 278 370 126 520 292 650 177 800 295 940 145 1100 275 1200 185V630H0Z" fill="#c47d72"/>
+<path d="M0 355Q170 250 335 350T650 344T940 330T1200 310V630H0Z" fill="#8f9f6a"/>
+<path d="M0 420Q170 340 330 405T650 388T930 400T1200 360V630H0Z" fill="url(#hill)"/>
+<path d="M610 340Q700 390 680 450T790 520Q880 555 920 630H570Q625 555 575 500T610 340Z" fill="url(#river)" opacity=".96"/>
+<path d="M605 388Q674 410 650 465T756 540" fill="none" stroke="#e7ffef" stroke-width="9" opacity=".8"/>
+<g fill="#2f7255"><path d="M70 355l-18-92 18-65 18 65-18 92z"/><path d="M44 305Q8 286 25 263Q52 267 58 292M82 286Q114 253 124 280Q112 303 82 305" /><path d="M1050 365l-16-85 16-65 16 65-16 85z"/><path d="M1029 320Q991 293 1008 277Q1034 281 1041 308M1065 298Q1097 267 1105 293Q1094 316 1065 320"/></g>
+<g filter="url(#shadow)"><rect x="45" y="38" width="1110" height="550" rx="42" fill="url(#card)" stroke="#fff" stroke-width="3"/></g>
+<g transform="translate(92 78)"><rect width="94" height="94" rx="28" fill="#fff" stroke="#e6f1e7" stroke-width="3"/><path d="M19 61V48a28 28 0 0 1 56 0v13" fill="none" stroke="#ff9a76" stroke-width="11" stroke-linecap="round"/><path d="M19 61V48a28 28 0 0 1 56 0v13" fill="none" stroke="#f6d66e" stroke-width="7" stroke-linecap="round" transform="translate(0 -1)"/><path d="M19 61V48a28 28 0 0 1 56 0v13" fill="none" stroke="#6fc9bb" stroke-width="4" stroke-linecap="round" transform="translate(0 1)"/></g>
+<text x="210" y="119" font-family="Arial,sans-serif" font-size="54" font-weight="800" fill="#173f38">Little Day</text>
+<text x="212" y="158" font-family="Arial,sans-serif" font-size="22" fill="#56756d">A little help for a lovely day 💛</text>
+<text x="94" y="235" font-family="Arial,sans-serif" font-size="30" font-weight="700" fill="#34564e">Big days start with</text>
+<text x="94" y="288" font-family="Arial,sans-serif" font-size="48" font-weight="800" fill="#173f38">little routines.</text>
+<text x="95" y="326" font-family="Arial,sans-serif" font-size="21" fill="#56756d">A playful daily helper for little people and big adventures.</text>
+<g transform="translate(95 366)">
+ <rect width="158" height="122" rx="24" fill="#ffe4d8"/><circle cx="79" cy="43" r="27" fill="#ffb79b"/><path d="M48 47Q44 11 79 11Q114 11 110 47L101 36 91 29 74 35 60 29Z" fill="#4c2e25"/><circle cx="69" cy="45" r="3.5" fill="#173f38"/><circle cx="89" cy="45" r="3.5" fill="#173f38"/><path d="M69 57Q79 68 90 57" fill="none" stroke="#9c4e3c" stroke-width="3" stroke-linecap="round"/><path d="M43 96Q79 66 115 96V112H43Z" fill="#3c8f9b"/><text x="79" y="115" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#173f38">GET READY</text>
+</g>
+<g transform="translate(275 366)">
+ <rect width="158" height="122" rx="24" fill="#e4f3d9"/><path d="M42 45Q79 22 116 45L105 79Q79 95 53 79Z" fill="#8bc6e6" stroke="#467c80" stroke-width="3"/><circle cx="62" cy="45" r="13" fill="#ef6f54"/><circle cx="82" cy="39" r="14" fill="#f6c24d"/><circle cx="99" cy="47" r="12" fill="#65b982"/><text x="79" y="115" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#173f38">BREAKFAST</text>
+</g>
+<g transform="translate(455 366)">
+ <rect width="158" height="122" rx="24" fill="#dceefa"/><rect x="45" y="38" width="67" height="48" rx="10" fill="#ffbf4f" stroke="#34564e" stroke-width="3"/><path d="M56 38V25H96V38" fill="none" stroke="#34564e" stroke-width="5"/><circle cx="61" cy="86" r="9" fill="#34564e"/><circle cx="98" cy="86" r="9" fill="#34564e"/><rect x="53" y="47" width="46" height="16" rx="4" fill="#fff1c6"/><text x="79" y="115" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#173f38">SCHOOL TIME</text>
+</g>
+<g transform="translate(635 366)">
+ <rect width="158" height="122" rx="24" fill="#f4e5f5"/><path d="M48 35H110L102 82H56Z" fill="#6e9bd8" stroke="#34564e" stroke-width="3"/><path d="M59 35Q61 16 79 16Q97 16 99 35" fill="none" stroke="#34564e" stroke-width="5"/><path d="M61 52H97M59 65H99" stroke="#f4e5f5" stroke-width="4"/><text x="79" y="115" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#173f38">DAILY TASKS</text>
+</g>
+<g transform="translate(815 366)">
+ <rect width="158" height="122" rx="24" fill="#fff0b9"/><circle cx="79" cy="54" r="30" fill="#f4ce53"/><path d="M61 55Q79 71 97 55" fill="none" stroke="#765d35" stroke-width="4" stroke-linecap="round"/><circle cx="69" cy="45" r="3" fill="#34564e"/><circle cx="89" cy="45" r="3" fill="#34564e"/><text x="79" y="115" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#173f38">PLAY & LEARN</text>
+</g>
+<text x="95" y="543" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#34564e">English · Deutsch · Português</text>
+<rect x="840" y="520" width="270" height="44" rx="22" fill="#24483f"/><text x="975" y="548" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#fffdf5">Open Little Day ↗</text>
+</svg>

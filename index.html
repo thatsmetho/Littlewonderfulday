@@ -127,6 +127,109 @@ body.theme-water .app,body.theme-sunrise .app,body.theme-rainbow .app{position:r
 @media(prefers-reduced-motion:reduce){
  body.theme-water,body.theme-sunrise,body.theme-rainbow{animation:none!important;background-size:cover!important}
 }
+
+/* LITTLE WONDERFUL DAY — scenic world polish pass */
+:root{
+ --world-glass:rgba(255,249,234,.84);
+ --world-glass-strong:rgba(255,252,243,.94);
+ --world-edge:rgba(255,255,255,.78);
+ --world-shadow:0 20px 55px rgba(19,47,43,.19),0 3px 12px rgba(19,47,43,.08);
+}
+body.theme-water,body.theme-sunrise,body.theme-rainbow{
+ background-attachment:fixed!important;
+ background-size:cover!important;
+ animation:none!important;
+ isolation:isolate;
+}
+body.theme-water:before,body.theme-sunrise:before,body.theme-rainbow:before{
+ content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+ opacity:1;
+ background:linear-gradient(180deg,rgba(15,35,39,.06) 0%,rgba(20,38,34,.02) 38%,rgba(13,35,30,.24) 100%);
+}
+body.theme-sunrise:before{
+ background:
+ radial-gradient(ellipse at 76% 40%,rgba(255,244,174,.40) 0%,rgba(255,213,136,.20) 13%,transparent 29%),
+ linear-gradient(180deg,rgba(27,38,41,.02),rgba(33,40,30,.05) 50%,rgba(19,36,29,.29));
+ animation:sunrise-breath 12s ease-in-out infinite alternate;
+}
+body.theme-rainbow:before{
+ background:
+ radial-gradient(ellipse at 80% 36%,rgba(255,255,255,.20),transparent 35%),
+ linear-gradient(180deg,rgba(42,75,112,.02),rgba(36,53,64,.02) 46%,rgba(18,49,42,.22));
+ animation:valley-light 16s ease-in-out infinite alternate;
+}
+body.theme-water:before{
+ background:
+ radial-gradient(ellipse at 48% 100%,rgba(109,242,227,.20),transparent 50%),
+ linear-gradient(180deg,rgba(11,50,66,.04),rgba(8,51,57,.12));
+ animation:water-light 10s ease-in-out infinite alternate;
+}
+@keyframes sunrise-breath{from{filter:brightness(.98)}to{filter:brightness(1.07)}}
+@keyframes valley-light{from{filter:saturate(1) brightness(.99)}to{filter:saturate(1.12) brightness(1.06)}}
+@keyframes water-light{from{filter:saturate(1) brightness(.98)}to{filter:saturate(1.13) brightness(1.05)}}
+body.theme-water .app,body.theme-sunrise .app,body.theme-rainbow .app{position:relative;z-index:1}
+body.theme-water .hero,body.theme-sunrise .hero,body.theme-rainbow .hero{
+ background:linear-gradient(135deg,rgba(255,250,238,.86),rgba(255,250,239,.72))!important;
+ border:1px solid var(--world-edge)!important;
+ box-shadow:var(--world-shadow)!important;
+ backdrop-filter:blur(20px) saturate(1.16);
+ -webkit-backdrop-filter:blur(20px) saturate(1.16);
+}
+body.theme-water .weather,body.theme-sunrise .weather,body.theme-rainbow .weather{
+ background:linear-gradient(145deg,rgba(255,253,246,.95),rgba(250,248,237,.86))!important;
+ border:1px solid rgba(255,255,255,.92);
+ box-shadow:0 12px 32px rgba(22,51,45,.12);
+}
+body.theme-water .panel,body.theme-sunrise .panel,body.theme-rainbow .panel{
+ background:linear-gradient(145deg,rgba(255,252,244,.91),rgba(248,249,237,.79))!important;
+ border:1px solid rgba(255,255,255,.78)!important;
+ box-shadow:var(--world-shadow)!important;
+ backdrop-filter:blur(18px) saturate(1.12);
+ -webkit-backdrop-filter:blur(18px) saturate(1.12);
+}
+body.theme-water .next-card,body.theme-sunrise .next-card,body.theme-rainbow .next-card{
+ background:linear-gradient(125deg,rgba(220,245,213,.93),rgba(206,239,222,.88))!important;
+ border:1px solid rgba(255,255,255,.92);
+ box-shadow:inset 0 1px rgba(255,255,255,.8),0 7px 20px rgba(34,75,57,.08);
+}
+body.theme-water .task,body.theme-sunrise .task,body.theme-rainbow .task{
+ background:rgba(255,255,255,.86)!important;
+ border:1px solid rgba(255,255,255,.96)!important;
+ box-shadow:0 7px 20px rgba(26,56,47,.07);
+ transition:transform .22s ease,box-shadow .22s ease,background .22s ease;
+}
+body.theme-water .task:hover,body.theme-sunrise .task:hover,body.theme-rainbow .task:hover{
+ transform:translateY(-2px);box-shadow:0 12px 24px rgba(26,56,47,.13);
+}
+body.theme-water .task-illustration,body.theme-sunrise .task-illustration,body.theme-rainbow .task-illustration{
+ background:linear-gradient(145deg,#fff9e7,#f6dfc5 48%,#c8eee4)!important;
+ border:1px solid rgba(255,255,255,.95)!important;
+ box-shadow:inset 0 1px 0 #fff,0 5px 12px rgba(30,69,56,.12);
+}
+body.theme-water .top .secondary,body.theme-sunrise .top .secondary,body.theme-rainbow .top .secondary,
+body.theme-water .language-switch,body.theme-sunrise .language-switch,body.theme-rainbow .language-switch{
+ background:rgba(255,251,240,.88);
+ backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+ border-color:rgba(255,255,255,.78);
+ box-shadow:0 5px 18px rgba(24,48,41,.09);
+}
+body.theme-water .ripple,body.theme-sunrise .ripple,body.theme-rainbow .ripple{
+ border-color:rgba(255,255,255,.96);
+ box-shadow:0 0 0 2px rgba(112,229,210,.45),0 0 22px rgba(255,255,255,.55);
+ animation:world-ripple 1s cubic-bezier(.15,.65,.25,1) forwards;
+}
+@keyframes world-ripple{
+ 0%{width:8px;height:8px;opacity:.95;border-width:3px}
+ 65%{opacity:.58}
+ 100%{width:190px;height:190px;opacity:0;border-width:1px}
+}
+/* Scenic light motes respond visually to clicks without adding heavy canvas/WebGL. */
+.world-mote{position:fixed;z-index:2;pointer-events:none;width:7px;height:7px;border-radius:50%;background:#fff7cc;box-shadow:0 0 12px 4px rgba(255,248,194,.5);animation:mote-float 1.4s ease-out forwards}
+@keyframes mote-float{0%{transform:translate(0,0) scale(.5);opacity:0}15%{opacity:.9}100%{transform:translate(var(--mx),var(--my)) scale(0);opacity:0}}
+@media(prefers-reduced-motion:reduce){
+ body.theme-water:before,body.theme-sunrise:before,body.theme-rainbow:before{animation:none!important}
+ body.theme-water .task,body.theme-sunrise .task,body.theme-rainbow .task{transition:none!important}
+}
 </style><script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script></head>
 <body><main class="app">
 <header class="top"><div class="brand"><div class="logo" aria-label="Little Day rainbow"><svg class="brand-rainbow" viewBox="0 0 100 76" role="img" aria-label="Colourful rainbow"><defs><linearGradient id="rainbowGlow" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6f91"/><stop offset=".25" stop-color="#ffb84d"/><stop offset=".5" stop-color="#ffe76a"/><stop offset=".7" stop-color="#66d7b3"/><stop offset="1" stop-color="#6d9cff"/></linearGradient></defs><path d="M8 70V48a42 42 0 0 1 84 0v22" fill="none" stroke="#ffffff" stroke-width="22" stroke-linecap="round"/><path d="M8 70V48a42 42 0 0 1 84 0v22" fill="none" stroke="url(#rainbowGlow)" stroke-width="16" stroke-linecap="round"/><path d="M22 70V49a28 28 0 0 1 56 0v21" fill="none" stroke="#fff8e9" stroke-width="7" stroke-linecap="round"/><g fill="#fff8e9"><circle cx="15" cy="18" r="3"/><circle cx="82" cy="10" r="2.5"/><circle cx="94" cy="27" r="2"/></g></svg></div><div><h1>Little Day</h1><p>A little help for a lovely day</p></div></div><div class="top-actions"><div class="language-switch" role="group" aria-label="Choose language"><button class="lang-btn" data-lang="pt" aria-label="Português" title="Português"><img class="language-flag" src="https://flagcdn.com/w40/pt.png" alt=""><span>PT</span></button><button class="lang-btn active" data-lang="en" aria-label="English" title="English"><img class="language-flag" src="https://flagcdn.com/w40/gb.png" alt=""><span>EN</span></button><button class="lang-btn" data-lang="de" aria-label="Deutsch" title="Deutsch"><img class="language-flag" src="https://flagcdn.com/w40/de.png" alt=""><span>DE</span></button></div><button class="secondary" id="settingsBtn" aria-label="Open settings">⚙️ <span>Settings</span></button><button class="secondary" id="weatherBtn">📍 <span data-i18n="setWeather">Set weather</span></button><button id="parentBtn">🔒 <span data-i18n="parentArea">Parent area</span></button></div></header>
@@ -162,6 +265,18 @@ function buildClockMarks(){const root=$('#clockMarks');if(!root)return;root.inne
 function setClockMode(mode){state.clockMode=mode==='analog'?'analog':'digital';const analog=$('#analogClock'),digital=$('#clock');if(analog)analog.classList.toggle('show',state.clockMode==='analog');if(digital)digital.style.display=state.clockMode==='digital'?'block':'none';const btn=$('#clockMode');if(btn)btn.textContent=tr(state.clockMode==='analog'?'switchDigital':'switchAnalog');save();updateAnalog(new Date())}
 function updateAnalog(now){const h=now.getHours()%12,m=now.getMinutes(),s=now.getSeconds();const hour=$('#hourHand'),minute=$('#minuteHand'),second=$('#secondHand');if(hour)hour.style.transform=`translateX(-50%) rotate(${h*30+m*.5}deg)`;if(minute)minute.style.transform=`translateX(-50%) rotate(${m*6+s*.1}deg)`;if(second)second.style.transform=`translateX(-50%) rotate(${s*6}deg)`}
 function toggleClock(){setClockMode(state.clockMode==='analog'?'digital':'analog')}
+
+function scenicMotes(x,y){
+ if(!['water','sunrise','rainbow'].includes(state.theme))return;
+ for(let i=0;i<7;i++){
+  const m=document.createElement('span');m.className='world-mote';
+  m.style.left=x+'px';m.style.top=y+'px';
+  m.style.setProperty('--mx',(Math.cos(i*Math.PI/3)* (18+i*4))+'px');
+  m.style.setProperty('--my',(-18-(i%3)*15)+'px');
+  m.style.animationDelay=(i*.035)+'s';document.body.appendChild(m);
+  m.addEventListener('animationend',()=>m.remove(),{once:true});
+ }
+}
 function waterRipple(x,y){const ripple=document.createElement('span');ripple.className='ripple';ripple.style.left=x+'px';ripple.style.top=y+'px';document.body.appendChild(ripple);ripple.addEventListener('animationend',()=>ripple.remove(),{once:true});if(state.waterSound!=='off'&&state.waterAudio!==false){try{const drop=new Audio('./assets/waterdropeffect.wav');drop.volume=.35;drop.play().catch(()=>{})}catch(e){/* visual ripple still works if audio is unavailable */}}}
 function render(){const now=new Date();$('#clock').textContent=now.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});updateAnalog(now);$('#date').textContent=now.toLocaleDateString(state.lang==='pt'?'pt-PT':state.lang==='de'?'de-DE':'en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});$('#greeting').textContent=(now.getHours()<12?tr('greetingMorning'):now.getHours()<18?tr('greetingAfternoon'):tr('greetingEvening'))+', '+tr('superstars')+' ✨';let ts=activeTasks();let upcoming=ts.filter(t=>!taskDone(t)&&minsUntil(t)>=0)[0]||ts.find(t=>!taskDone(t));$('#taskCount').textContent=`${ts.filter(taskDone).length}/${ts.length} ${tr('done')}`;$('#nextTask').innerHTML=upcoming?`<div class="next-card">${taskImg(upcoming)}<div style="min-width:0;flex:1"><h3>${esc(upcoming.title)}</h3><p>${esc(upcoming.note||'One little step at a time!')}</p><div class="countdown">${minsUntil(upcoming)>=0?countdown(minsUntil(upcoming)):tr('ready')}</div><p style="margin-top:5px">${tr('startsAt')} ${esc(upcoming.time)}</p><button style="margin-top:9px;background:#28583b" onclick="completeTask('${upcoming.id}')">${tr('didIt')}</button></div></div>`:`<div class="empty">${tr('allDone')}</div>`;
 $('#timeline').innerHTML=ts.map(t=>`<div class="task ${taskDone(t)?'done':''}">${taskImg(t)}<div class="task-info"><div class="task-name">${esc(t.title)}</div><div class="task-meta">${esc(t.time)} · ${t.profile==='all'?tr('everyone'):esc((state.profiles.find(p=>p.id===t.profile)||{}).name||'Child')} ${t.repeat?'· Repeats':''}</div></div><div class="task-actions"><button class="icon-btn task-check" title="Mark done" onclick="completeTask('${t.id}')">${taskDone(t)?'✓':'○'}</button></div></div>`).join('');$('#emptyTasks').classList.toggle('hidden',ts.length>0);$('#timeline').classList.toggle('hidden',ts.length===0);renderProfiles();$('#voiceToggle').textContent=state.voice?tr('voiceOn'):tr('voiceOff');if(!upcoming)$('#assistantMessage').textContent=tr('allDone');applyLanguage();}
@@ -232,7 +347,7 @@ async function getWeather(lat,lon,city=''){try{$('#weatherDesc').textContent='Ch
 function setWeather(){openModal(tr('setWeatherTitle'),`<p class="notice">${tr('weatherNote')}</p><div class="field"><label>${tr('city')}</label><input id="cityInput" placeholder="e.g. Berlin" value="${esc(state.city)}"></div><div class="modal-actions"><button class="secondary" onclick="useLocation()">${tr('useLocation')}</button><div><button class="secondary" onclick="closeModal()">${tr('cancel')}</button><button onclick="searchCity()">${tr('findCity')}</button></div></div>`)}
 async function searchCity(){const city=$('#cityInput').value.trim();if(!city)return toast(tr('enterCity'));try{const r=await fetch('https://geocoding-api.open-meteo.com/v1/search?name='+encodeURIComponent(city)+'&count=1&language=en&format=json');const d=await r.json();if(!d.results?.length)return toast(tr('cityNotFound'));const x=d.results[0];closeModal();await getWeather(x.latitude,x.longitude,[x.name,x.admin1].filter(Boolean).join(', '))}catch{toast('Could not search right now.')}}
 function useLocation(){if(!navigator.geolocation){toast('Location is not available in this browser.');return}navigator.geolocation.getCurrentPosition(p=>{closeModal();getWeather(p.coords.latitude,p.coords.longitude,'Your location')},()=>toast('Location permission was not granted.'))}
-document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>setLanguage(b.dataset.lang)));$('#clock').addEventListener('click',toggleClock);$('#analogClock').addEventListener('click',toggleClock);$('#clockMode').addEventListener('click',toggleClock);['clock','analogClock'].forEach(id=>$('#'+id).addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleClock()}}));document.addEventListener('pointerdown',e=>{if(e.target.closest('button,a,input,select,textarea,.panel,.weather,.modal,.language-switch,.task,.next-card,.assistant,.clock,.analog-clock'))return;waterRipple(e.clientX,e.clientY)});$('.assistant-face').style.cursor='pointer';$('.assistant-face').setAttribute('role','button');$('.assistant-face').setAttribute('tabindex','0');$('.assistant-face').setAttribute('aria-label','Tap Sunny to say hello');$('.assistant-face').onclick=reactSunny;$('.assistant-face').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();reactSunny()}};$('#parentBtn').onclick=parentArea;$('#weatherBtn').onclick=setWeather;$('#refreshWeather').onclick=()=>state.lat!=null?getWeather(state.lat,state.lon,state.city):setWeather();$('#sayAgain').onclick=()=>{const t=activeTasks().find(t=>!taskDone(t));const msg=t?`${t.title}. ${t.note||''}`:$('#assistantMessage').textContent;speak(msg)};$('#voiceToggle').onclick=()=>{state.voice=!state.voice;if(!state.voice&&'speechSynthesis'in window)speechSynthesis.cancel();save();render();toast(state.voice?'Voice reminders on':'Voice reminders off')};$('#profiles').onclick=e=>{const b=e.target.closest('[data-profile]');if(!b)return;state.profile=b.dataset.profile;save();render()};window.taskEditor=taskEditor;window.parentEditor=parentEditor;window.profileManager=profileManager;window.editProfile=editProfile;window.removeProfile=removeProfile;window.deleteTask=deleteTask;window.changePin=changePin;window.resetDemo=resetDemo;window.requestNotifications=requestNotifications;window.exportData=exportData;window.importData=importData;window.openImport=openImport;window.closeModal=closeModal;window.searchCity=searchCity;window.useLocation=useLocation;
+document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>setLanguage(b.dataset.lang)));$('#clock').addEventListener('click',toggleClock);$('#analogClock').addEventListener('click',toggleClock);$('#clockMode').addEventListener('click',toggleClock);['clock','analogClock'].forEach(id=>$('#'+id).addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleClock()}}));document.addEventListener('pointerdown',e=>{if(e.target.closest('button,a,input,select,textarea,.modal,.language-switch,.clock,.analog-clock'))return;if(['water','sunrise','rainbow'].includes(state.theme)){waterRipple(e.clientX,e.clientY);scenicMotes(e.clientX,e.clientY)} });$('.assistant-face').style.cursor='pointer';$('.assistant-face').setAttribute('role','button');$('.assistant-face').setAttribute('tabindex','0');$('.assistant-face').setAttribute('aria-label','Tap Sunny to say hello');$('.assistant-face').onclick=reactSunny;$('.assistant-face').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();reactSunny()}};$('#parentBtn').onclick=parentArea;$('#weatherBtn').onclick=setWeather;$('#refreshWeather').onclick=()=>state.lat!=null?getWeather(state.lat,state.lon,state.city):setWeather();$('#sayAgain').onclick=()=>{const t=activeTasks().find(t=>!taskDone(t));const msg=t?`${t.title}. ${t.note||''}`:$('#assistantMessage').textContent;speak(msg)};$('#voiceToggle').onclick=()=>{state.voice=!state.voice;if(!state.voice&&'speechSynthesis'in window)speechSynthesis.cancel();save();render();toast(state.voice?'Voice reminders on':'Voice reminders off')};$('#profiles').onclick=e=>{const b=e.target.closest('[data-profile]');if(!b)return;state.profile=b.dataset.profile;save();render()};window.taskEditor=taskEditor;window.parentEditor=parentEditor;window.profileManager=profileManager;window.editProfile=editProfile;window.removeProfile=removeProfile;window.deleteTask=deleteTask;window.changePin=changePin;window.resetDemo=resetDemo;window.requestNotifications=requestNotifications;window.exportData=exportData;window.importData=importData;window.openImport=openImport;window.closeModal=closeModal;window.searchCity=searchCity;window.useLocation=useLocation;
 
 const ALARM_FILES={
  'alarmsoundbomdia.mp3':'Bom Dia 1',

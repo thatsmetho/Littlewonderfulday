@@ -103,7 +103,7 @@ body.theme-water .panel,body.theme-sunrise .panel,body.theme-rainbow .panel{
 }
 body.theme-water .task,body.theme-sunrise .task,body.theme-rainbow .task{background:#fff;border-color:#dce8df}
 /* Interactive corner scenery was covering controls on short screens. */
-.scene-layer{display:none!important}
+body:not(.theme-stars) .scene-layer{display:none!important}body.theme-stars .scene-layer{display:block!important}
 .task-illustration{background:linear-gradient(145deg,#fff4d5,#f8dfc2 45%,#cceee7);border:2px solid #fff;box-shadow:0 5px 12px rgba(37,69,60,.18)}
 .task .task-illustration{width:60px;height:60px;border-radius:16px}
 .next-card .task-illustration{width:82px;height:82px;border-radius:20px}
@@ -252,6 +252,27 @@ body.theme-water .ripple,body.theme-sunrise .ripple,body.theme-rainbow .ripple{
 .parent-auth-provider .provider-mark{width:22px;height:22px;display:grid;place-items:center;font-weight:900;font-size:17px}
 .parent-auth-note{font-size:12px;line-height:1.5;color:#6b7d74;background:#f4f5ef;border-radius:12px;padding:11px 12px;margin-top:13px}
 @media(max-width:430px){.parent-auth-grid{grid-template-columns:1fr}}
+
+/* REGRESSION FIX: preserve the original water/night artwork and interactions. */
+body.theme-water{background:#087f9b url('./assets/sunlitwater.png') center center/cover fixed no-repeat!important;animation:none!important}
+body.theme-stars{background:#061022 url('./assets/starlitsky.png') center center/cover fixed no-repeat!important;animation:none!important}
+body.theme-water:before{background:transparent!important}
+body.theme-stars:before{display:none!important}
+body.theme-stars .scene-layer{display:block!important;z-index:8}
+body.theme-stars .scene-star,body.theme-stars .wallpaper-star-hit,body.theme-stars .scene-moon{pointer-events:auto}
+body.theme-sunrise{background:linear-gradient(180deg,#ffc89d 0%,#ffe5ad 34%,#e5f3c5 65%,#7dc9b2 100%) fixed!important;background-size:cover!important;animation:little-day-landscape-drift 32s ease-in-out infinite}
+body.theme-rainbow{background:linear-gradient(180deg,#7cc9ff 0%,#c5c4ff 35%,#ffd0ee 60%,#fff0bb 78%,#9ce6bd 100%) fixed!important;background-size:cover!important;animation:little-day-landscape-drift 32s ease-in-out infinite}
+body.theme-sunrise:before,body.theme-rainbow:before{z-index:0;opacity:.9}
+body.theme-water .hero,body.theme-stars .hero,body.theme-sunrise .hero,body.theme-rainbow .hero,body.theme-water .weather,body.theme-stars .weather,body.theme-sunrise .weather,body.theme-rainbow .weather{backdrop-filter:blur(14px)}
+body.theme-water .hero,body.theme-sunrise .hero,body.theme-rainbow .hero{background:rgba(255,249,235,.72)!important;border:1px solid rgba(255,255,255,.66)!important}
+body.theme-water .weather,body.theme-sunrise .weather,body.theme-rainbow .weather{background:rgba(255,251,242,.78)!important;border:1px solid rgba(255,255,255,.72)!important}
+body.theme-water .panel,body.theme-sunrise .panel,body.theme-rainbow .panel{background:rgba(255,253,247,.78)!important;border-color:rgba(255,255,255,.72)!important}
+body.theme-water .task,body.theme-sunrise .task,body.theme-rainbow .task{background:rgba(255,255,255,.78)!important;border-color:rgba(255,255,255,.7)!important}
+body.theme-stars .hero,body.theme-stars .weather{background:rgba(11,25,49,.70)!important}
+body.theme-stars .panel,body.theme-stars .task,body.theme-stars .modal{background:rgba(8,19,39,.76)!important;border-color:rgba(120,150,190,.4)!important}
+body.theme-stars .weather-advice,body.theme-stars .language-switch{background:rgba(26,43,73,.82)!important}
+.ripple{z-index:40;mix-blend-mode:screen}
+@media(prefers-reduced-motion:reduce){body.theme-sunrise,body.theme-rainbow{animation:none!important}}
 </style><script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script></head>
 <body><main class="app">
 <header class="top"><div class="brand"><div class="logo" aria-label="Little Day rainbow"><svg class="brand-rainbow" viewBox="0 0 100 76" role="img" aria-label="Colourful rainbow"><defs><linearGradient id="rainbowGlow" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6f91"/><stop offset=".25" stop-color="#ffb84d"/><stop offset=".5" stop-color="#ffe76a"/><stop offset=".7" stop-color="#66d7b3"/><stop offset="1" stop-color="#6d9cff"/></linearGradient></defs><path d="M8 70V48a42 42 0 0 1 84 0v22" fill="none" stroke="#ffffff" stroke-width="22" stroke-linecap="round"/><path d="M8 70V48a42 42 0 0 1 84 0v22" fill="none" stroke="url(#rainbowGlow)" stroke-width="16" stroke-linecap="round"/><path d="M22 70V49a28 28 0 0 1 56 0v21" fill="none" stroke="#fff8e9" stroke-width="7" stroke-linecap="round"/><g fill="#fff8e9"><circle cx="15" cy="18" r="3"/><circle cx="82" cy="10" r="2.5"/><circle cx="94" cy="27" r="2"/></g></svg></div><div><h1>Little Day</h1><p>A little help for a lovely day</p></div></div><div class="top-actions"><div class="language-switch" role="group" aria-label="Choose language"><button class="lang-btn" data-lang="pt" aria-label="Português" title="Português"><img class="language-flag" src="https://flagcdn.com/w40/pt.png" alt=""><span>PT</span></button><button class="lang-btn active" data-lang="en" aria-label="English" title="English"><img class="language-flag" src="https://flagcdn.com/w40/gb.png" alt=""><span>EN</span></button><button class="lang-btn" data-lang="de" aria-label="Deutsch" title="Deutsch"><img class="language-flag" src="https://flagcdn.com/w40/de.png" alt=""><span>DE</span></button></div><button class="secondary" id="settingsBtn" aria-label="Open settings">⚙️ <span>Settings</span></button><button class="secondary" id="weatherBtn">📍 <span data-i18n="setWeather">Set weather</span></button><button id="parentBtn">🔒 <span data-i18n="parentArea">Parent area</span></button></div></header>

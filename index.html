@@ -209,7 +209,7 @@ function settingsModal(){
   save();applyTheme();closeModal();render();toast('Settings saved on this device.');
  };
 }
-function chooseTheme(theme){state.theme=theme;save();applyTheme();settingsModal();}
+function chooseTheme(theme){state.theme=theme;save();applyTheme();renderScene();settingsModal();}
 function showAlarmOverlay(){
  if($('#alarmOverlay'))return;
  const overlay=document.createElement('div');overlay.className='alarm-overlay';overlay.id='alarmOverlay';

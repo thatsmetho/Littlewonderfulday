@@ -448,7 +448,7 @@ function lwd3dAvatar(p,preview){
  const floor=new T.Mesh(new T.CircleGeometry(.78,32),new T.MeshBasicMaterial({color:0x5c9687,transparent:true,opacity:.12}));floor.rotation.x=-Math.PI/2;floor.position.y=-1.79;scene.add(floor);
  let dragging=false,lastX=0;canvas.onpointerdown=e=>{dragging=true;lastX=e.clientX;canvas.setPointerCapture?.(e.pointerId)};canvas.onpointermove=e=>{if(dragging){root.rotation.y+=(e.clientX-lastX)*.012;lastX=e.clientX}};canvas.onpointerup=canvas.onpointercancel=()=>dragging=false;
  const resize=()=>{const nw=Math.max(180,preview.clientWidth||270),nh=Math.max(220,preview.clientHeight||300);renderer.setSize(nw,nh,false);camera.aspect=nw/nh;camera.updateProjectionMatrix()};preview._lwd3dResize=resize;
- const draw=()=>{preview._lwd3dFrame=requestAnimationFrame(draw);if(!dragging)root.rotation.y+=.003;renderer.render(scene,camera)};draw();return true;
+ const draw=()=>{preview._lwd3dFrame=requestAnimationFrame(draw);renderer.render(scene,camera)};root.rotation.y=0;draw();return true;
 }
 function editProfile(id){
  const existing=state.profiles.find(p=>p.id===id),p=normalizeProfile(existing||{});

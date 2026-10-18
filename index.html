@@ -403,7 +403,7 @@ function loadLwdThree(){
  if(lwdThreeLoadPromise)return lwdThreeLoadPromise;
  lwdThreeLoadPromise=new Promise(resolve=>{
   const trySource=(src,backup)=>{const script=document.createElement('script');script.src=src;script.onload=()=>resolve(!!window.THREE);script.onerror=()=>{script.remove();if(backup)trySource(backup,null);else resolve(false)};document.head.appendChild(script)};
-  trySource('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js','https://unpkg.com/three@0.160.0/build/three.min.js');
+  trySource('https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js','https://unpkg.com/three@0.149.0/build/three.min.js');
  });
  return lwdThreeLoadPromise;
 }
